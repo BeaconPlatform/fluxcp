@@ -1,0 +1,12 @@
+
+{
+  "name": "deityro/web",
+  "description": "DeityRO website",
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "vlucas/phpdotenv": "^2.3.0"
+  },
+  "require-dev": {
+  }
+}

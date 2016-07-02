@@ -6,6 +6,9 @@ if (version_compare(PHP_VERSION, '5.2.1', '<')) {
 	exit;
 }
 
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
 // Disable Zend Engine 1 compatibility mode.
 // See: http://www.php.net/manual/en/ini.core.php#ini.zend.ze1-compatibility-mode
 ini_set('zend.ze1_compatibility_mode', 0);

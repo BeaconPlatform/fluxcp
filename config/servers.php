@@ -4,7 +4,7 @@ return array(
 	// specify multiple server groups (however they should share the same login
 	// server whilst they are allowed to have multiple char/map pairs).
 	array(
-		'ServerName'     => 'FluxRO',
+		'ServerName'     => getenv('SERVER_NAME'),
 		// Global database configuration (excludes logs database configuration).
 		'DbConfig'       => array(
 			//'Socket'     => '/tmp/mysql.sock',
@@ -13,10 +13,10 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => getenv('GAME_DATABASE_HOSTNAME'),
+			'Username'   => getenv('GAME_DATABASE_USERNAME'),
+			'Password'   => getenv('GAME_DATABASE_PASSWORD'),
+			'Database'   => getenv('GAME_DATABASE_NAME'),
 			'Persistent' => true,
 			'Timezone'   => null // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
@@ -34,26 +34,26 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
-			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
-			'Database'   => 'ragnarok',
+			'Hostname'   => getenv('GAME_DATABASE_HOSTNAME'),
+			'Username'   => getenv('GAME_DATABASE_USERNAME'),
+			'Password'   => getenv('GAME_DATABASE_PASSWORD'),
+			'Database'   => getenv('GAME_DATABASE_NAME'),
 			'Persistent' => true,
 			'Timezone'   => null // Possible values is as described in the comment in DbConfig.
 		),
 		// Login server configuration.
 		'LoginServer'    => array(
-			'Address'  => '127.0.0.1',
+			'Address'  => getenv('LOGINSERVER_IPADDRESS'),
 			'Port'     => 6900,
-			'UseMD5'   => false,
+			'UseMD5'   => getenv('LOGINSERVER_MD5'),
 			'NoCase'   => true, // rA account case-sensitivity; Default: Case-INsensitive (true).
 			'GroupID'  => 0,    // Default account group ID during registration.
 			//'Database' => 'ragnarok'
 		),
 		'CharMapServers' => array(
 			array(
-				'ServerName'      => 'FluxRO',
-				'Renewal'         => true,
+				'ServerName'      => getenv('SERVER_NAME'),
+				'Renewal'         => getenv('RENEWAL'),
 				'MaxCharSlots'    => 9,
 				'DateTimezone'    => null, // Specifies game server's timezone for this char/map pair. (See: http://php.net/timezones)
 				//'ResetDenyMaps'   => 'sec_pri', // Defaults to 'sec_pri'. This value can be an array of map names.
@@ -83,12 +83,12 @@ return array(
 					'MvpItem'     => 100
 				),
 				'CharServer'      => array(
-					'Address'     => '127.0.0.1',
-					'Port'        => 6121
+					'Address'     => getenv('CHARSERVER_IPADDRESS'),
+					'Port'        => getenv('CHARSERVER_PORT')
 				),
 				'MapServer'       => array(
-					'Address'     => '127.0.0.1',
-					'Port'        => 5121
+					'Address'     => getenv('MAPSERVER_IPADDRESS'),
+					'Port'        => getenv('MAPSERVER_PORT')
 				),
 				// -- WoE days and times --
 				// First parameter: Starding day 0=Sunday / 1=Monday / 2=Tuesday / 3=Wednesday / 4=Thursday / 5=Friday / 6=Saturday

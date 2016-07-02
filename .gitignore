@@ -15,3 +15,7 @@
 
 /data/tmp/*.php
 /data/tmp/*.cache
+
+.idea
+.env
+vendor/
